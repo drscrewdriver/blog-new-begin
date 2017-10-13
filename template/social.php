@@ -10,23 +10,12 @@
 				}?></i>
 			</a>
 		</span>
-		<div class="shang-p">
-			<div class="shang-empty"><span></span></div>
-			<?php if ( zm_get_option('alipay_name') == '' ) { ?>
-				<span class="shang-s"><a title="<?php echo zm_get_option('alipay_t'); ?>"><?php echo zm_get_option('alipay_name'); ?></a></span></span>
-			<?php } else { ?>
-				
-
-				<span class="shang-p">
-				    <div class="shang-s">
-				        <a onclick="PaymentUtils.show();" style="cursor:pointer">赏</a>
-				    </div>
-				</span>
-				<!-- js地址自行修改下 -->
-				<script type="text/javascript" src="https://js.blog.drscrewdriver.top/wp-content/themes/begin/js/ds.js"></script>
-
-			<?php } ?>
-		</div>
+		<span class="shang-p">
+			<div class="ds-reward-stl">
+				<a id="dsRewardBtn" onclick="PaymentUtils.show();" title="点击打赏">赏</a>
+			</div>
+		</span>
+		
 		<div class="share-sd">
 			<span class="share-s"><a href="javascript:void(0)" id="share-s" title="<?php _e( '分享', 'begin' ); ?>"><i class="fa fa-share-alt"></i><?php _e( '分享', 'begin' ); ?></a></span>
 			<?php if (zm_get_option('share')) { ?><?php get_template_part( 'template/share' ); ?><?php } ?>
