@@ -2319,7 +2319,7 @@ img.alignleft {
 .log-close i{color: #fff;padding: 5px 0 10px 1px}
 #log-box strong{font-size: 12px;color: #fff}
 .log-zd{position: absolute;background: #2f889a;top: -1px;left: -21px;width: 22px;height: 101%;border-radius: 5px 0 0 5px}
-#log-box{position: fixed;background: #fff;bottom: 235px;right: 45px;max-width: 260px;padding: 5px 0 0 10px;border: 1px solid #ddd;border-radius: 0 5px 5px 0;box-shadow: 0 1px 1px rgba(0,0,0,0.04);background: rgba(255,255,255,0.95);z-index: 9999;display: none;animation: fade-in;animation-duration: .5s;-webkit-animation: fade-in .5s}
+#log-box{position: fixed;background: #fff;bottom: 235px;right: 45px;max-width: 280px;padding: 5px 0 0 0px;border: 1px solid #ddd;border-radius: 0 5px 5px 0;box-shadow: 0 1px 1px rgba(0,0,0,0.04);background: rgba(255,255,255,0.95);z-index: 9999;display: none;animation: fade-in;animation-duration: .5s;-webkit-animation: fade-in .5s}
 #catalog{height: 210px;overflow: scroll;overflow-x: hidden}
 #catalog ul{margin: 0 10px 5px 0}
 #catalog,#catalog a{font-size: 14px;color: #666}
@@ -5561,17 +5561,16 @@ li.comments-anchor {
 /** 赏 **/
 .shang-empty{position:absolute;left:90px;top:0;width:62px;height:38px;overflow:hidden}
 .shang-empty span{background:#fff;width:60px;height:60px;display:block;margin:-10px 0 0 0;border-radius:60px;border:1px solid #ddd}
-.shang-p a{position:absolute;background:#fff;left:96px;top:-5px;width:48px;height:48px;font-size:16px;line-height:45px;display:block;border:1px solid #ddd;border-radius:40px;left:101px\9;top:0\9;width:38px\9;height:38px\9;line-height:35px\9}
+.shang-p span{position:absolute;background:#fff;left:96px;top:-5px;width:48px;height:48px;font-size:16px;line-height:45px;display:block;border:0px solid #ddd;border-radius:40px;left:101px\9;top:0\9;width:38px\9;height:38px\9;line-height:35px\9}
 .shang-s{height:37px}
 #shang{width:280px;display:block}
 .shang-img{float:left}
 .shang-img img{width:140px;height:auto}
 .shang-main h4{font-size:15px;font-size:1.5rem;text-align:center;margin-bottom:10px}
 .shang-main i{color:red}
-#dsRewardBtn .cursor:pointer{
+#dsRewardBtn {
     padding: 0;
     margin: 0;
-    position: absolute;
     background: #ffab2e;
     left: 98px;
     top: -7px;

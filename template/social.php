@@ -11,9 +11,9 @@
 			</a>
 		</span>
 		<span class="shang-p">
-			<div class="ds-reward-stl">
+			<span class="p">
 				<a id="dsRewardBtn" onclick="PaymentUtils.show();" title="点击打赏">赏</a>
-			</div>
+			</span>
 		</span>
 		
 		<div class="share-sd">

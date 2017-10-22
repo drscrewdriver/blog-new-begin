@@ -319,28 +319,44 @@ eval("?".">".$html);
 
 ob_start("Static_Switch_css");
 function Static_Switch_css($buffer){
-$buffer_out = preg_replace('/http(s|):\/\/([^"\']*?)blog\.drscrewdriver\.cn\/wp-([^"\']*?)\.(css)/i','https://css.blog.drscrewdriver.top/wp-$3.$4',$buffer);
+$buffer_out = preg_replace('/http(s|):\/\/([^"\']*?)blog\.drscrewdriver\.cn\/wp-content\/themes\/([^"\']*?)\.css/i','https://css.blog.drscrewdriver.top/wp-content/themes/$3.css',$buffer);
 return $buffer_out;
 }
 ob_start("Static_Switch_js");
 function Static_Switch_js($buffer){
-$buffer_out = preg_replace('/http(s|):\/\/([^"\']*?)blog\.drscrewdriver\.cn\/wp-([^"\']*?)\.(js)/i','https://js.blog.drscrewdriver.top/wp-$3.$4',$buffer);
+$buffer_out = preg_replace('/http(s|):\/\/([^"\']*?)blog\.drscrewdriver\.cn\/wp-content\/([^"\']*?)\.js/i','https://js.blog.drscrewdriver.top/wp-content/$3.js',$buffer);
 return $buffer_out;
 }
 
 ob_start("Static_Switch_img");
 function Static_Switch_img($buffer){
-$buffer_out = preg_replace('/blog\.drscrewdriver\.cn\/wp-content\/themes\/begin\/img\/random\/([^"\']*?)\.(jpg)/i','img.blog.drscrewdriver.top/wp-content/themes/begin/img/random/$1.$2',$buffer);
-$buffer_out = preg_replace('/blog\.drscrewdriver\.cn\/wp-content\/plugins\/([^"\']*?)\.(bmp|gif|jpeg|jpg|png)/i','img.blog.drscrewdriver.top/wp-content/plugins/$1.$2',$buffer_out);
+$buffer_out = preg_replace('/blog\.drscrewdriver\.cn\/wp-content\/themes\/begin\/timthumb\.php?src=([^"\']*?)?w=([^"\']*?)&h=([^"\']*?)&([^"\']*?)/i','blog.drscrewdriver.cn/wp-content/themes/begin/timthumb.php?$1',$buffer);
+$buffer = preg_replace('/blog\.drscrewdriver\.cn\/wp-content\/themes\/begin\/img\/random\/([^"\']*?)\.jpg/i','img.blog.drscrewdriver.top/wp-content/themes/begin/img/random/$1.jpg',$buffer);
+$buffer_out = preg_replace('/blog\.drscrewdriver\.cn\/wp-content\/themes\/([^"\']*?)\.(bmp|gif|jpeg|jpg|png)/i','imgs.blog.drscrewdriver.top/wp-content/themes/$1.$2',$buffer);
+$buffer_out = preg_replace('/blog\.drscrewdriver\.cn\/wp-content\/plugins\/([^"\']*?)\.(bmp|gif|jpeg|jpg|png)/i','imgs.blog.drscrewdriver.top/wp-content/plugins/$1.$2',$buffer);
 return $buffer_out;
 }
 
 ob_start("Static_Switch_thumb");
 function Static_Switch_thumb($buffer){
-$buffer_out = preg_replace('/blog\.drscrewdriver\.cn([^"\']*?)\/timthumb\.php([^"\']*?)src=http(s|):\/\/blog.drscrewdriver.cn\/([^"\']*?)\.(bmp|gif|jpeg|jpg|png)&/i','thumb.blog.drscrewdriver.top/$4.$5?',$buffer);
-$buffer_out = preg_replace('/blog\.drscrewdriver\.cn\/wp-content\/uploads\/([^"\']*?)\.(bmp|gif|jpeg|jpg|png)/i','thumb.blog.drscrewdriver.top/wp-content/uploads/$1.$2',$buffer_out);
+$buffer_out = preg_replace('/blog\.drscrewdriver\.cn([^"\']*?)\/timthumb\.php([^"\']*?)src=http(s|):\/\/blog.drscrewdriver.cn\/([^"\']*?)\.(bmp|gif|jpeg|jpg|png)&/i','thumbs.blog.drscrewdriver.top/$4.$5?',$buffer);
+$buffer_out = preg_replace('/blog\.drscrewdriver\.cn\/wp-content\/uploads\/([^"\']*?)\.(bmp|gif|jpeg|jpg|png)/i','thumbs.blog.drscrewdriver.top/wp-content/uploads/$1.$2',$buffer_out);
 return $buffer_out;
 }
+
+add_filter ('the_content', 'fix_fancybox');
+function fix_fancybox($content) {
+    global $post;
+    #修复图片暗箱属性
+    $content = preg_replace("/<a(.*?)rel=('|\")(.*?)('|\")(.*?)><img(.*?)<\/a>/i", '<a$1rel="example_group"$5><img$6</a>', $content);
+    #去掉 srcset 属性（若不需要缩略图尺寸可注释或删除）
+    $content = preg_replace("/srcset=('|\")(.*?)('|\")/i", '', $content);
+    #去掉图片尺寸属性（若不需要缩略图尺寸可注释或删除）
+    $content = preg_replace('/<img(.*?)width="(.*?)" height="(.*?)"(.*?)>/i', '<img$1$4>', $content);
+    return $content;
+}
+
+
 
 function mytheme_get_avatar($avatar) {
 $avatar = str_replace(array("www.gravatar.com","0.gravatar.com","1.gravatar.com","2.gravatar.com","cn.gravatar.com"),"gravatar.cat.net",$avatar);
@@ -348,6 +364,12 @@ return $avatar;
 }
 add_filter( 'get_avatar', 'mytheme_get_avatar', 10, 3 );
 /**
+       ob_start("rewrite_urls");
+function rewrite_urls($buffer){
+	$buffer= preg_replace('/("|\')http(s|):\/\/([^"\']*?)'.$_SERVER["HTTP_HOST"].'/i','$1//$3'.$_SERVER["HTTP_HOST"],$buffer);
+	
+	return $buffer;
+}
 
 function my_avatar( $email = 'gravatarcache@ilxtx.com', $size = '32', $default = '', $alt = '') {
   // 设置$email默认值为一个不存在的邮箱，如：gravatarcache@ilxtx.com
@@ -406,8 +428,6 @@ return $avatar;
 add_filter('get_avatar', 'cache_avatar');
 
 //xiangduilink
-
-
 
 
 

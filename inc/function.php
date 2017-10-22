@@ -104,7 +104,7 @@ function article_catalog($content) {
 	}
 	return $content;
 }
-add_filter( "the_content", "article_catalog" );
+//add_filter( "the_content", "article_catalog" );
 }
 
 if (zm_get_option('tag_c')) {

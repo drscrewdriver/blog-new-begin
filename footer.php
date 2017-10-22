@@ -22,7 +22,7 @@
 
 <?php if (zm_get_option('share')) { ?>
 <?php if (is_single() || is_page() ) : ?>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='https://img.blog.drscrewdriver.top/wp-content/uploads/static/api/js/share.js?v=418423'+~(-new Date()/36e5)];</script>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='https://js.blog.drscrewdriver.top/wp-content/uploads/static/api/js/share.js?v=418423'+~(-new Date()/36e5)];</script>
 <?php endif; ?>
 <?php } ?>
 

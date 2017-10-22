@@ -18,19 +18,20 @@ Template Name: 百度搜索
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<div id="bdcs-frame-box"></div>
 				<script type="text/javascript">
-				var bdcsFrameSid="<?php echo zm_get_option('baidu_id'); ?>";
-				var bdcsFrameCharset= "utf-8";
-				var bdcsFrameWidth = 650;
-				var bdcsFrameHeight = 1300;
-				var bdcsFrameWt = 1;
-				var bdcsFrameHt = 2;
-				var bdcsFrameResultNum = 20;
-				var bdcsFrameBgColor = "#fff";
-				var bdcsRecommend = 0;
-				var bdcsDefaultQuery = 0;
-				var bdcsRemoveUrl = 0;
-				</script>
-				<script type="text/javascript" src="http://zhannei.baidu.com/static/js/iframe.js"></script>
+                                var bdcsFrameSid="<?php echo zm_get_option('baidu_id'); ?>";
+                                var bdcsFrameCharset= "utf-8";
+                                var bdcsFrameWidth = 850; //宽度请自行调整
+                                var bdcsFrameHeight = 0;
+                                var bdcsFrameWt = 1;
+                                var bdcsFrameHt = 2;
+                                var bdcsFrameResultNum = 20;
+                                var bdcsFrameBgColor = "#fff";
+                                var bdcsRecommend = 0;
+                                var bdcsDefaultQuery = 0;
+                                var bdcsRemoveUrl = 0;
+                                </script>
+                                <!-- 按照实际情况修改下面js地址 -->
+                                <script type="text/javascript" src="http://zhannei.baidu.com/static/js/iframe.js"></script>
 			</article><!-- #page -->
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
