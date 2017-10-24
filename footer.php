@@ -44,7 +44,8 @@
 <?php } ?>
 
 </div><!-- .site -->
-
+<div class="sidebar_wo scroll-b" id="leimu"><img src="https://imgs.blog.drscrewdriver.top/wp-content/uploads/static/img/leimu_1.png" alt="蕾姆" onmouseover="this.src='https://imgs.blog.drscrewdriver.top/wp-content/uploads/static/img/leimu_2.png'" onmouseout="this.src='https://imgs.blog.drscrewdriver.top/wp-content/uploads/static/img/leimu_1.png'" id="audioBtn"> </div>
+<div class="sidebar_wo scroll-h" id="lamu"><img src="https://imgs.blog.drscrewdriver.top/wp-content/uploads/static/img/lamu_1.png" alt="拉姆" onmouseover="this.src='https://imgs.blog.drscrewdriver.top/wp-content/uploads/static/img/lamu_2.png'" onmouseout="this.src='https://imgs.blog.drscrewdriver.top/wp-content/uploads/static/img/lamu_1.png'" id="audioBtn"> </div>
 <?php wp_footer(); ?>
 
 </body>
